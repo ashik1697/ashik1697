@@ -1,0 +1,25 @@
+<h1>List of Employees</h1>
+<a routerLink="/add" class="btn btn-primary">Add</a>
+<table class="table">
+    <tr>
+        <th>name</th>
+        <th>Id</th>
+        <th>email</th>
+        <th>Phonenumber</th>
+        <th>Position</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let emp of employee;let i=index">
+        <td>{{emp.name}}</td>
+        <td>{{emp.Id}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.Phonenumber}}</td>
+        <td>{{emp.Position}}</td>
+        <td><a class="btn btn-primary" (click)="edit(emp,i)">Edit</a></td>
+        <td><button (click)="ondelete(employee.Id)" class="btn btn-danger">x</button></td>
+    </tr>
+</table>
+
+
+
+

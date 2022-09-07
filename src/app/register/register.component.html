@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h2>{{header}}</h2>
+  <form [formGroup]="employeeform">
+    <div class="form-group col-md-6">
+      <label>name</label>
+      <input name="name" class="form-control" formControlName="name"><br>
+    </div>
+    <div class="form-group col-md-6">
+      <label>ID</label>
+      <input name="Id" class="form-control" formControlName="Id"><br>
+    </div>
+    <div class="form-group col-md-6">
+      <label>email</label>
+      <input name="email" class="form-control" formControlName="email"><br>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Phonenumber</label>
+      <input name="Phonenumber" class="form-control" formControlName="Phonenumber"><br>
+    </div>
+    <div class="form-group col-md-6">
+      <label> Position</label>
+      <input name=" Position" class="form-control" formControlName="Position"><br>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" (click)="OnSubmit(employeeform)">{{data>=0?'Update':'Submit'}}</button>
+      <!-- <div class="form-group">
+        <button class="btn btn-primary" (click)="onupdate(employee,index)" routerLink="/update">Update</button>
+      </div> -->
+    </div>
+  </form>
+</div>
