@@ -1,56 +1,5 @@
-<div class="container mt-5">
-  <form [formGroup]="employeeform"  (ngSubmit)="onsave(employeeform.value)">
-    <div class="form-group col-md-6">
-      <label>name</label>
-      <input name="name" class="form-control" formControlName="name"><br>
-    </div>
-    <div class="form-group col-md-6">
-      <label>ID</label>
-      <input name="Id" class="form-control" formControlName="Id"><br>
-    </div>
-    <div class="form-group col-md-6">
-      <label>email</label>
-      <input name="email" class="form-control" formControlName="email"><br>
-    </div>
-    <div class="form-group col-md-6">
-      <label>Phonenumber</label>
-      <input name="Phonenumber" class="form-control" formControlName="Phonenumber"><br>
-    </div>
-    <div class="form-group col-md-6">
-      <label> Position</label>
-      <input name=" Position" class="form-control" formControlName="Position"><br>
-    </div>
-    <div>
-      <button class="btn btn-primary">{{editmode? 'Update':'Submit'}}</button>
-    </div>
-  </form>
-</div>
+<h1>{{fromsub}}</h1>
 
-
-
-<h1 text-align="center"> Employee List</h1>
-<h1>List of Employees</h1>
-<a class="btn btn-primary">Add</a>
-<table class="table">
-    <tr>
-        <th>name</th>
-        <th>Id</th>
-        <th>email</th>
-        <th>Phonenumber</th>
-        <th>Position</th>
-        <th></th>
-    </tr>
-    <tr *ngFor="let u of employeedetails">
-        <td>{{u.name}}</td>
-        <td>{{u.Id}}</td>
-        <td>{{u.email}}</td>
-        <td>{{u.Phonenumber}}</td>
-        <td>{{u.Position}}</td>
-        <td><button class="btn btn-warning"(click)=onedit(u.Id)>edit</button></td>
-        <td><button class="btn btn-danger" (click)=ondelete(u.Id)>Delete</button></td>
-        
-        
-    </tr>
-</table>
+<app-component2></app-component2>
 
 <router-outlet></router-outlet>

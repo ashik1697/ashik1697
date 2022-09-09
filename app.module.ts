@@ -1,26 +1,21 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmployeeaddComponent } from './employeeadd/employeeadd.component';
-import{HttpClientModule} from '@angular/common/http';
-
+import { ServiceService } from './service.service';
+import { Component2Component } from './component2/component2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeaddComponent
+    Component2Component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

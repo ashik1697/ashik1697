@@ -1,95 +1,54 @@
-import { HttpClient } from '@angular/common/http';
-import { Component,OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import{map} from 'rxjs/operators';
-import { Employee } from 'src/employee';
-
+import { Component } from '@angular/core';
+import { Observable, of, Subject } from 'rxjs';
+import { ServiceService } from './service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  currentId:any;
-  employeeform:any;
- employeedetails:Employee[]=[];
- form!: FormGroup;
- editmode:boolean=false
- 
-  
-    
-  private _backend: string = 'https://employee-management-syst-c2881-default-rtdb.firebaseio.com/employee.json';
-  public get backend(): string {
-    return this._backend;
-  }
-  public set backend(value: string) {
-    this._backend = value;
-  }
-  title: any;
-  constructor(private http:HttpClient){}
-  ngOnInit(): void {
-    this.get()
-    this.employeeform = new FormGroup({
-      name: new FormControl(""),
-      Id: new FormControl(0),
-      email: new FormControl(""),
-      Phonenumber: new FormControl(0),
-      Position: new FormControl(""),
-    });
-  }
-  onsave(employee:{name:string,Id:number,email:string,Phonenumber:number,Position:string})
-  {
-    if(!this.editmode)
-    {
-    this.http.post(this.backend,employee).subscribe((data)=>{
+export class AppComponent {
+  title = 'rxjs';
+  fromsub=null;
 
-    });
-  }
-    else
-    {
-      this.update(this.currentId,employee)
-    }
-  }
-  get()
-  {
-    this.http.get(this.backend)
-    .pipe(map((data)=>{
-      const employees=[];
-      for(let key in data)
-      {
-        if(data.hasOwnProperty(key))
-        {
-          employees.push({...data[key],Id:key});
-          console.log("g",employees)
-        }
+  constructor(private service:ServiceService){
 
-      }
-      return employees
-    }))
-    
-    .subscribe((employees)=>{
-      console.log(employees);
-      this.employeedetails=employees;
+    this.service.sub.subscribe(x=>{console.log("from sub app",x)
+    this.fromsub=x;
+    console.log(this.fromsub);
   })
-  }
-  ondelete(Id:number)
-  {
-this.http.delete('https://employee-management-syst-c2881-default-rtdb.firebaseio.com/employee/'+Id+'.json')
-.subscribe();
-  }
-  onedit(Id:any)
-  {
-let emp=this.employeedetails.find((p)=>{return p.Id===Id});
-this.currentId=Id;
-console.log("p",emp)
-this.employeeform.patchValue(
-  emp
-)
-this.editmode=true
-  }
- update(Id:number,value:Employee)
-  {
-this.http.put('https://employee-management-syst-c2881-default-rtdb.firebaseio.com/employee/'+Id+'.json',value).subscribe()
+   
+    const observable = new Observable((subscriber) => {
+      console.log('a');
+      console.log('hi');
+      // setTimeout(() => subscriber.next('1'), 4000);
+      // setTimeout(() => subscriber.next('2'), 8000);
+      // setTimeout(() => subscriber.next('3'), 12000);
+      // setTimeout(() => subscriber.next('4'), 16000);
+      // setTimeout(() => subscriber.next('5'), 20000);
+
+      subscriber.next('1');
+      subscriber.next('2');
+      subscriber.next('3');
+      subscriber.next('4');
+      subscriber.next('5');
+      console.log('bye');
+    });
+    observable.subscribe((x) => {
+      console.log(x);
+    });
+    observable.subscribe((y)=>{
+      console.log(y);
+    });
   }
 }
+
+
+var sub:Subject<any>=new Subject()
+sub.subscribe(x=>console.log('from app sub',x));
+sub.next('a');
+sub.subscribe(x=>console.log('from app sub',x));
+sub.next('b');
+sub.subscribe(x=>console.log('from app sub',x));
+sub.next('c');
+
