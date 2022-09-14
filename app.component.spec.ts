@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'candeactivate'`, () => {
+  it(`should have as title 'httpcrud'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('candeactivate');
+    expect(app.title).toEqual('httpcrud');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('candeactivate app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('httpcrud app is running!');
   });
 });
