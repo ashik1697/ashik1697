@@ -1,10 +1,4 @@
-<ul>
-<li [routerLinkActive]="'active'"><a [routerLink]="'/Home'">Home</a></li>
-<li [routerLinkActive]="'active'"><a [routerLink]="'/About'">About</a></li>
-<li [routerLinkActive]="'active'"><a [routerLink]="'/Contact'">Contact</a></li>
-</ul>
-  <button (click)="login()">Login</button>
-  <button (click)="logout()">Logout</button>
-
-
+<a [routerLink]="'Home'">Home</a><br>
+<a [routerLink]="'About'">About</a><br>
+<a [routerLink]="'Contact'">Contact</a><br>
 <router-outlet></router-outlet>

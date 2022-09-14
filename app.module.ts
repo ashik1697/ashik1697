@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { ServiceService } from 'src/service.service';
+import { CandeactivateService } from './candeactivate.service';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ServiceService],
+  providers: [CandeactivateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
