@@ -3,19 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ServiceService } from './service.service';
-import { Component2Component } from './component2/component2.component';
+import { SgtoinrPipe } from './pipe/sgtoinr.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Component2Component
+    SgtoinrPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
